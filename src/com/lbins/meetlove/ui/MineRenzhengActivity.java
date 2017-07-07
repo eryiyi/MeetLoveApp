@@ -513,7 +513,6 @@ public class MineRenzhengActivity extends BaseActivity implements View.OnClickLi
     }
 
 
-
     //广播接收动作
     private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
         @Override

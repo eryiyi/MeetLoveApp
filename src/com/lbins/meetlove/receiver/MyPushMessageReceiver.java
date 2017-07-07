@@ -62,7 +62,6 @@ public class MyPushMessageReceiver extends PushMessageReceiver {
                 e.printStackTrace();
             }
         }
-
     }
 
     /**
