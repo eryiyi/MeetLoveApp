@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_gravity="center"
+              android:background="@color/white"
+              android:gravity="center"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:maxHeight="108dp"
+            android:minHeight="108dp"
+            android:maxWidth="108dp"
+            android:minWidth="108dp"
+            android:id="@+id/cover"/>
+
+        <RelativeLayout android:layout_width="wrap_content"
+                        android:padding="5dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="wrap_content">
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="horizontal"
+                          android:id="@+id/liner_top"
+                          android:gravity="center"
+                          android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+                          android:textSize="18sp"
+                          android:id="@+id/nickname"
+                          android:textColor="@color/textColor"
+                          android:layout_height="wrap_content"/>
+                <TextView android:layout_width="wrap_content"
+                          android:id="@+id/state"
+                          android:textSize="13sp"
+                          android:text="单身"
+                          android:layout_marginLeft="8dp"
+                          android:layout_marginTop="1dp"
+                          android:textColor="@color/main_color"
+                          android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                            android:layout_below="@+id/liner_top"
+                            android:id="@+id/liner_two"
+                            android:gravity="center"
+                            android:layout_margin="5dp"
+                            android:layout_height="wrap_content">
+                <ImageView android:layout_width="18dp"
+                           android:id="@+id/vip1_img"
+                           android:src="@drawable/icon_verify_id_enabled"
+                           android:layout_height="18dp"/>
+                <TextView android:layout_width="wrap_content"
+                          android:text="认证"
+                          android:layout_marginLeft="3dp"
+                          android:textSize="12sp"
+                          android:textColor="@color/main_color"
+                          android:id="@+id/vip1_text"
+                          android:layout_toRightOf="@+id/vip1_img"
+                          android:layout_height="wrap_content"/>
+                <ImageView android:layout_width="18dp"
+                           android:id="@+id/vip2_img"
+                           android:layout_toLeftOf="@+id/vip2_text"
+                           android:layout_marginLeft="10dp"
+                           android:src="@drawable/icon_verify_honesty_enabled"
+                           android:layout_height="18dp"/>
+                <TextView android:layout_width="wrap_content"
+                          android:text="诚信"
+                          android:layout_marginRight="6dp"
+                          android:textSize="12sp"
+                          android:layout_marginLeft="3dp"
+                          android:textColor="@color/orange"
+                          android:id="@+id/vip2_text"
+                          android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="horizontal"
+                          android:gravity="center"
+                          android:layout_margin="3dp"
+                          android:layout_below="@+id/liner_two"
+                          android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_below="@+id/liner_two"
+                          android:id="@+id/age"
+                          android:text="1898年"
+                          android:textColor="@color/textColortwo"
+                          android:textSize="12sp"
+                          android:layout_height="wrap_content"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_marginLeft="6dp"
+                          android:layout_toRightOf="@+id/age"
+                          android:layout_below="@+id/liner_two"
+                          android:id="@+id/height"
+                          android:text="198CM"
+                          android:textSize="12sp"
+                          android:textColor="@color/textColortwo"
+                          android:layout_height="wrap_content"/>
+                <TextView android:layout_width="wrap_content"
+                          android:textColor="@color/textColortwo"
+                          android:layout_toRightOf="@+id/height"
+                          android:textSize="12sp"
+                          android:text="九龙区"
+                          android:layout_marginLeft="6dp"
+                          android:layout_below="@+id/liner_two"
+                          android:id="@+id/address"
+                          android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@color/bg_gray"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"
+            layout="@layout/top"/>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:orientation="vertical"
+                  android:layout_height="wrap_content">
+        <View android:layout_width="match_parent"
+              android:background="@color/sign_mood_nomal_0"
+              android:layout_marginTop="0.1dp"
+              android:layout_height="0.1dp"></View>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:padding="10dp"
+                      android:visibility="gone"
+                      android:background="@drawable/btn_dark_shape"
+                      android:id="@+id/linerr"
+                      android:layout_height="50dip">
+            <TextView android:layout_width="match_parent"
+                      android:text="删除群成员"
+                      android:drawableRight="@drawable/icon_small_list_more"
+                      android:layout_marginLeft="15dp"
+                      android:layout_gravity="center_vertical"
+                      android:textColor="@color/textColor"
+                      android:textSize="16sp"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <View android:layout_width="match_parent"
+              android:background="@color/sign_mood_nomal_0"
+              android:layout_marginTop="0.1dp"
+              android:layout_height="0.1dp"></View>
+        <RelativeLayout
+                android:id="@+id/rl_switch_block_groupmsg"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:background="@color/white"
+                android:padding="10dip">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="消息免打扰"
+                    android:textColor="@color/textColor"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="15dp"
+                    android:typeface="serif" />
+
+            <com.hyphenate.easeui.widget.EaseSwitchButton
+                    android:id="@+id/switch_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    app:switchStatus="close" />
+        </RelativeLayout>
+
+        <View android:layout_width="match_parent"
+              android:background="@color/sign_mood_nomal_0"
+              android:layout_marginTop="0.1dp"
+              android:layout_height="0.1dp"></View>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:padding="10dp"
+                      android:background="@drawable/btn_dark_shape"
+                      android:id="@+id/liner5"
+                      android:layout_height="50dip">
+            <TextView android:layout_width="match_parent"
+                      android:text="投诉"
+                      android:drawableRight="@drawable/icon_small_list_more"
+                      android:layout_marginLeft="15dp"
+                      android:layout_gravity="center_vertical"
+                      android:textColor="@color/textColor"
+                      android:textSize="16sp"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
