@@ -182,6 +182,7 @@
     <file url="file://$PROJECT_DIR$/res/drawable-xxhdpi/no_pic.png" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/res/drawable-xxhdpi/pull_to_refresh_arrow.png" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/res/drawable-xxhdpi/welcome_loading.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/res/drawable-xxhdpi/welcome_loading.png" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/res/drawable/btn_blue_selector.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/res/drawable/btn_dark_shape.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/res/drawable/btn_jubao_normal_shape.xml" charset="UTF-8" />
@@ -350,6 +351,7 @@
     <file url="file://$PROJECT_DIR$/res/layout/msg_friends_dialog.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/res/layout/msg_jwqq1_dialog.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/res/layout/msg_msg_dialog.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/res/layout/msg_msg_dialog2.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/res/layout/msg_reg_dialog.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/res/layout/msg_reply_login_dialog.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/res/layout/msg_tel_dialog.xml" charset="UTF-8" />
@@ -504,6 +506,8 @@
     <file url="file://$PROJECT_DIR$/src/com/lbins/meetlove/dao/DaoMaster.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/lbins/meetlove/dao/DaoSession.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/lbins/meetlove/dao/Emp.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/lbins/meetlove/dao/Emp.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/lbins/meetlove/dao/EmpDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/lbins/meetlove/dao/EmpDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/lbins/meetlove/dao/Friends.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/lbins/meetlove/dao/FriendsDao.java" charset="UTF-8" />

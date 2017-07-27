@@ -59,6 +59,9 @@ public class EmpDao extends AbstractDao<Emp, String> {
         public final static Property Pname = new Property(33, String.class, "pname", false, "PNAME");
         public final static Property CityName = new Property(34, String.class, "cityName", false, "CITY_NAME");
         public final static Property Is_push = new Property(35, String.class, "is_push", false, "IS_PUSH");
+        public final static Property Cardnum = new Property(36, String.class, "cardnum", false, "CARDNUM");
+        public final static Property Tjperson = new Property(37, String.class, "tjperson", false, "TJPERSON");
+        public final static Property Tjmobile = new Property(38, String.class, "tjmobile", false, "TJMOBILE");
     };
 
     private DaoSession daoSession;
@@ -112,7 +115,10 @@ public class EmpDao extends AbstractDao<Emp, String> {
                 "'MARRIAGEM' TEXT," + // 32: marriagem
                 "'PNAME' TEXT," + // 33: pname
                 "'CITY_NAME' TEXT," + // 34: cityName
-                "'IS_PUSH' TEXT);"); // 35: is_push
+                "'IS_PUSH' TEXT," + // 35: is_push
+                "'CARDNUM' TEXT," + // 36: cardnum
+                "'TJPERSON' TEXT," + // 37: tjperson
+                "'TJMOBILE' TEXT);"); // 38: tjmobile
     }
 
     /** Drops the underlying database table. */
@@ -301,6 +307,21 @@ public class EmpDao extends AbstractDao<Emp, String> {
         if (is_push != null) {
             stmt.bindString(36, is_push);
         }
+ 
+        String cardnum = entity.getCardnum();
+        if (cardnum != null) {
+            stmt.bindString(37, cardnum);
+        }
+ 
+        String tjperson = entity.getTjperson();
+        if (tjperson != null) {
+            stmt.bindString(38, tjperson);
+        }
+ 
+        String tjmobile = entity.getTjmobile();
+        if (tjmobile != null) {
+            stmt.bindString(39, tjmobile);
+        }
     }
 
     @Override
@@ -354,7 +375,10 @@ public class EmpDao extends AbstractDao<Emp, String> {
             cursor.isNull(offset + 32) ? null : cursor.getString(offset + 32), // marriagem
             cursor.isNull(offset + 33) ? null : cursor.getString(offset + 33), // pname
             cursor.isNull(offset + 34) ? null : cursor.getString(offset + 34), // cityName
-            cursor.isNull(offset + 35) ? null : cursor.getString(offset + 35) // is_push
+            cursor.isNull(offset + 35) ? null : cursor.getString(offset + 35), // is_push
+            cursor.isNull(offset + 36) ? null : cursor.getString(offset + 36), // cardnum
+            cursor.isNull(offset + 37) ? null : cursor.getString(offset + 37), // tjperson
+            cursor.isNull(offset + 38) ? null : cursor.getString(offset + 38) // tjmobile
         );
         return entity;
     }
@@ -398,6 +422,9 @@ public class EmpDao extends AbstractDao<Emp, String> {
         entity.setPname(cursor.isNull(offset + 33) ? null : cursor.getString(offset + 33));
         entity.setCityName(cursor.isNull(offset + 34) ? null : cursor.getString(offset + 34));
         entity.setIs_push(cursor.isNull(offset + 35) ? null : cursor.getString(offset + 35));
+        entity.setCardnum(cursor.isNull(offset + 36) ? null : cursor.getString(offset + 36));
+        entity.setTjperson(cursor.isNull(offset + 37) ? null : cursor.getString(offset + 37));
+        entity.setTjmobile(cursor.isNull(offset + 38) ? null : cursor.getString(offset + 38));
      }
     
     /** @inheritdoc */

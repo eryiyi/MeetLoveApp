@@ -189,15 +189,12 @@ public class ProfileDetailActivity extends BaseActivity implements View.OnClickL
         }
         if(!StringUtil.isNullOrEmpty(emp.getMobile())){
             if(!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("rzstate1", ""), String.class))){
-                if("1".equals(getGson().fromJson(getSp().getString("rzstate1", ""), String.class))){
-                    //进行身份认证了
-                    mobile.setText(emp.getMobile());
-                }else {
-                    mobile.setText("     查看    ");
-                    mobile.setTextSize(15);
-                    mobile.setBackgroundResource(R.drawable.btn_small_navbarbtn_enabled);
-                    mobile.setTextColor(res.getColor(R.color.white));
-                }
+//                if("1".equals(getGson().fromJson(getSp().getString("rzstate1", ""), String.class))){
+//                    //进行身份认证了
+//
+//                }else {
+//
+//                }
             }else {
                 mobile.setText("    查看    ");
                 mobile.setTextSize(15);
@@ -424,6 +421,7 @@ public class ProfileDetailActivity extends BaseActivity implements View.OnClickL
         company.setOnClickListener(this);
         btn_login.setOnClickListener(this);
 
+
     }
 
     private void showDialogMsg(String msgStr) {
@@ -515,6 +513,9 @@ public class ProfileDetailActivity extends BaseActivity implements View.OnClickL
                 if(!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("rzstate1", ""), String.class))){
                     if("1".equals(getGson().fromJson(getSp().getString("rzstate1", ""), String.class))){
                         //进行身份认证了
+                        if(isFriends == 0){
+                            showDialogMsg("对方不是您的好友，无法查看！");
+                        }
                     }else {
                         showMsgDialog();
                     }
@@ -896,9 +897,15 @@ public class ProfileDetailActivity extends BaseActivity implements View.OnClickL
                                             //是好友
                                             isFriends = 1;
                                             btn_login.setText("发消息");
+                                            mobile.setText(emp.getMobile());
                                         }else{
                                             isFriends = 0;
                                             btn_login.setText("添加到通讯录");
+
+                                            mobile.setText("     查看    ");
+                                            mobile.setTextSize(15);
+                                            mobile.setBackgroundResource(R.drawable.btn_small_navbarbtn_enabled);
+                                            mobile.setTextColor(res.getColor(R.color.white));
                                         }
                                     }
                                 }else {

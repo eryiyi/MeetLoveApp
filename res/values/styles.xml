@@ -64,6 +64,23 @@
         <item name="android:paddingRight">15dip</item>
     </style>
 
+    <style name="dialog12" parent="@android:style/Theme.Holo.DialogWhenLarge">
+        <item name="android:windowFrame">@null</item>
+        <!--边框-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">true</item>
+        <!--半透明-->
+        <item name="android:windowNoTitle">true</item>
+        <!--无标题-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <!--模糊-->
+        <item name="android:paddingLeft">5dip</item>
+        <item name="android:paddingRight">5dip</item>
+    </style>
+
+
     <style name="SetPicCheck" parent="@android:style/Widget.CompoundButton.CheckBox">
         <item name="android:button">@drawable/selector_set_number_check</item>
     </style>

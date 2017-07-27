@@ -187,6 +187,10 @@ public class WelcomeActivity extends BaseActivity implements Runnable {
         save("marriagem", emp.getMarriagem());
         save("is_push", emp.getIs_push());
 
+        save("cardnum", emp.getCardnum());
+        save("tjperson", emp.getTjperson());
+        save("tjmobile", emp.getTjmobile());
+
         DBHelper.getInstance(WelcomeActivity.this).saveEmp(emp);
         EMClient.getInstance().logout(true);
         EMClient.getInstance().login(emp.getEmpid(), "123456", new EMCallBack() {

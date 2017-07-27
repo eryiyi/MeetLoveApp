@@ -130,6 +130,10 @@ public class RegUpdateActivity extends BaseActivity implements View.OnClickListe
 
     private List<HappyHandLike> likeLists = new ArrayList<>();//兴趣爱好集合
 
+    private EditText tjperson;
+    private EditText tjmobile;
+    private EditText cardnum;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -165,6 +169,16 @@ public class RegUpdateActivity extends BaseActivity implements View.OnClickListe
         if(!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mobile", ""), String.class))){
             mobile.setText(getGson().fromJson(getSp().getString("mobile", ""), String.class));
         }
+        if(!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("tjperson", ""), String.class))){
+            tjperson.setText(getGson().fromJson(getSp().getString("tjperson", ""), String.class));
+        }
+        if(!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("tjmobile", ""), String.class))){
+            tjmobile.setText(getGson().fromJson(getSp().getString("tjmobile", ""), String.class));
+        }
+        if(!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("cardnum", ""), String.class))){
+            cardnum.setText(getGson().fromJson(getSp().getString("cardnum", ""), String.class));
+        }
+
         if(!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("age", ""), String.class))){
             age.setText(getGson().fromJson(getSp().getString("age", ""), String.class)+"年");
             ageStr = getGson().fromJson(getSp().getString("age", ""), String.class);
@@ -334,6 +348,10 @@ public class RegUpdateActivity extends BaseActivity implements View.OnClickListe
         marragie = (TextView) this.findViewById(R.id.marragie);
         likes = (TextView) this.findViewById(R.id.likes);
         company = (EditText) this.findViewById(R.id.company);
+        tjperson = (EditText) this.findViewById(R.id.tjperson);
+        cardnum = (EditText) this.findViewById(R.id.cardnum);
+        tjmobile = (EditText) this.findViewById(R.id.tjmobile);
+
         txt_pic = (TextView) this.findViewById(R.id.txt_pic);
         mobile = (TextView) this.findViewById(R.id.mobile);
 
@@ -515,6 +533,16 @@ public class RegUpdateActivity extends BaseActivity implements View.OnClickListe
                     showMsg(RegUpdateActivity.this, "姓名太长，请检查！");
                     return;
                 }
+                if(StringUtil.isNullOrEmpty(cardnum.getText().toString())){
+                    showMsg(RegUpdateActivity.this, "请输入医保卡号");
+                    return;
+                }
+
+                if(StringUtil.isNullOrEmpty(company.getText().toString())){
+                    showMsg(RegUpdateActivity.this, "请输入工作单位");
+                    return;
+                }
+
                 if(StringUtil.isNullOrEmpty(ageStr)){
                     showMsg(RegUpdateActivity.this, "请选择您的年龄");
                     return;
@@ -535,10 +563,7 @@ public class RegUpdateActivity extends BaseActivity implements View.OnClickListe
                     showMsg(RegUpdateActivity.this, "请选择您的婚姻状况");
                     return;
                 }
-                if(StringUtil.isNullOrEmpty(company.getText().toString())){
-                    showMsg(RegUpdateActivity.this, "请输入工作单位");
-                    return;
-                }
+
                 if(company.getText().toString().length()>30){
                     showMsg(RegUpdateActivity.this, "工作单位字数超限");
                     return;
@@ -646,6 +671,10 @@ public class RegUpdateActivity extends BaseActivity implements View.OnClickListe
                 params.put("educationm", educationID2);
                 params.put("marriagem", marragieID2);
 
+                params.put("cardnum", cardnum.getText().toString());
+                params.put("tjmobile", tjmobile.getText().toString());
+                params.put("tjperson", tjperson.getText().toString());
+
                 return params;
             }
 
@@ -692,6 +721,10 @@ public class RegUpdateActivity extends BaseActivity implements View.OnClickListe
         save("educationm", emp.getEducationm());
         save("marriagem", emp.getMarriagem());
         save("is_push", emp.getIs_push());
+
+        save("cardnum", emp.getCardnum());
+        save("tjperson", emp.getTjperson());
+        save("tjmobile", emp.getTjmobile());
 
         boolean isFirstRun = getSp().getBoolean("isFirstRunUpdate"+emp.getEmpid(), true);
         if (isFirstRun) {

@@ -302,6 +302,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         save("educationm", emp.getEducationm());
         save("marriagem", emp.getMarriagem());
         save("is_push", emp.getIs_push());
+
+        save("cardnum", emp.getCardnum());
+        save("tjperson", emp.getTjperson());
+        save("tjmobile", emp.getTjmobile());
+
 //        showMsg(LoginActivity.this, "欢迎您回到幸福牵手吧！如果在使用过程中有任何问题或建议，请随时与我们联系。谢谢！");
         save("is_reply_login"+emp.getEmpid(), "true");
         DBHelper.getInstance(LoginActivity.this).saveEmp(emp);

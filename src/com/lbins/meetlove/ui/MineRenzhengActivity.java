@@ -1,6 +1,7 @@
 package com.lbins.meetlove.ui;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -472,7 +473,9 @@ public class MineRenzhengActivity extends BaseActivity implements View.OnClickLi
                                     Intent intent1 = new Intent("rzstate1_success");
                                     sendBroadcast(intent1);
                                 }else{
-                                    showMsg(MineRenzhengActivity.this, jo.getString("message"));
+                                    //认证失败
+                                    showDialogMsg("你好，请上传清晰的本人身份证正面照片,实名填写姓名、手机号码和医保卡号。" +
+                                            "资料正确提交后如认证失败,请24小时后再次认证！如需帮助或有任何疑问,请联系我们！");
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -510,6 +513,22 @@ public class MineRenzhengActivity extends BaseActivity implements View.OnClickLi
             }
         };
         getRequestQueue().add(request);
+    }
+
+    private void showDialogMsg(String msgStr) {
+        final Dialog picAddDialog = new Dialog(MineRenzhengActivity.this, R.style.dialog12);
+        View picAddInflate = View.inflate(this, R.layout.msg_msg_dialog2, null);
+        final TextView msg = (TextView) picAddInflate.findViewById(R.id.msg);
+        msg.setText(msgStr);
+        TextView btn_sure = (TextView) picAddInflate.findViewById(R.id.btn_sure);
+        btn_sure.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                picAddDialog.dismiss();
+            }
+        });
+        picAddDialog.setContentView(picAddInflate);
+        picAddDialog.show();
     }
 
 

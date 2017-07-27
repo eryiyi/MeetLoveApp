@@ -279,8 +279,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 progressDialog.setCancelable(true);
                 progressDialog.setIndeterminate(true);
                 progressDialog.show();
-                reg();
-//                SMSSDK.submitVerificationCode("86", phString, card.getText().toString());
+//                reg();
+                SMSSDK.submitVerificationCode("86", phString, card.getText().toString());
             }
                 break;
             case R.id.sex_man:
