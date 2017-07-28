@@ -149,7 +149,7 @@ public class PayEmpRzActivity extends BaseActivity implements View.OnClickListen
                 selectPayWay = 0;
                 Order order = new Order();
                 order.setEmpid(getGson().fromJson(getSp().getString("empid", ""), String.class));
-                order.setPayable_amount("120");
+                order.setPayable_amount("180");
                 order.setTrade_type("1");//0支付宝  1微信
                 order.setOrder_cont("幸福牵手吧会员认证服务费，微信支付");
                 order.setIs_dxk_order("0");//0认证服务费  1诚信保证金
@@ -164,7 +164,7 @@ public class PayEmpRzActivity extends BaseActivity implements View.OnClickListen
                 selectPayWay = 1;
                 Order order = new Order();
                 order.setEmpid(getGson().fromJson(getSp().getString("empid", ""), String.class));
-                order.setPayable_amount("120");
+                order.setPayable_amount("180");
                 order.setTrade_type("0");//0支付宝  1微信
                 order.setOrder_cont("幸福牵手吧会员认证服务费，支付宝支付");
                 order.setIs_dxk_order("0");//0认证服务费  1诚信保证金

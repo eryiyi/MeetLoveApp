@@ -116,14 +116,15 @@ public class MineRenzhengActivity extends BaseActivity implements View.OnClickLi
         if(!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("mobile", ""), String.class))){
             mobile.setText(getGson().fromJson(getSp().getString("mobile", ""), String.class));
         }
-        if(!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("cardpic", ""), String.class))){
-            imageLoader.displayImage(getGson().fromJson(getSp().getString("cardpic", ""), String.class), idcard, MeetLoveApplication.options, animateFirstListener);
-        }
+
         if("1".equals(getGson().fromJson(getSp().getString("rzstate1", ""), String.class))){
             //身份认证了
             btn_1.setBackgroundResource(R.drawable.btn_big_unactive);
             btn_1.setTextColor(res.getColor(R.color.textColortwo));
             btn_1.setText("身份已认证");
+            if(!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("cardpic", ""), String.class))){
+                imageLoader.displayImage(getGson().fromJson(getSp().getString("cardpic", ""), String.class), idcard, MeetLoveApplication.options, animateFirstListener);
+            }
         }else {
             //未认证
             btn_1.setBackgroundResource(R.drawable.btn_big_active);

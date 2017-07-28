@@ -183,7 +183,6 @@
                               android:gravity="top"
                               android:paddingTop="8dp"
                               android:paddingLeft="8dp"
-                              android:numeric="integer"
                               android:textSize="15sp"
                               android:id="@+id/tjmobile"
                               android:textColor="@color/text_color"
