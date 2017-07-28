@@ -537,12 +537,27 @@ public class RegUpdateActivity extends BaseActivity implements View.OnClickListe
                     showMsg(RegUpdateActivity.this, "请输入医保卡号");
                     return;
                 }
+                if(cardnum.getText().toString().length() > 12){
+                    showMsg(RegUpdateActivity.this, "请输入正确的医保卡号");
+                    return;
+                }
 
                 if(StringUtil.isNullOrEmpty(company.getText().toString())){
                     showMsg(RegUpdateActivity.this, "请输入工作单位");
                     return;
                 }
-
+                if(!StringUtil.isNullOrEmpty(tjperson.getText().toString())){
+                    if(tjperson.getText().toString().length() > 5){
+                        showMsg(RegUpdateActivity.this, "请输入正确的推荐人姓名");
+                        return;
+                    }
+                }
+                if(!StringUtil.isNullOrEmpty(tjmobile.getText().toString())){
+                    if(tjmobile.getText().toString().length() != 11){
+                        showMsg(RegUpdateActivity.this, "请输入正确的推荐人手机号");
+                        return;
+                    }
+                }
                 if(StringUtil.isNullOrEmpty(ageStr)){
                     showMsg(RegUpdateActivity.this, "请选择您的年龄");
                     return;

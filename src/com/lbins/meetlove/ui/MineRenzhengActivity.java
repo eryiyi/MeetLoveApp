@@ -474,8 +474,8 @@ public class MineRenzhengActivity extends BaseActivity implements View.OnClickLi
                                     sendBroadcast(intent1);
                                 }else{
                                     //认证失败
-                                    showDialogMsg("你好，请上传清晰的本人身份证正面照片,实名填写姓名、手机号码和医保卡号。" +
-                                            "资料正确提交后如认证失败,请24小时后再次认证！如需帮助或有任何疑问,请联系我们！");
+                                    showDialogMsg("你好，请上传清晰的本人身份证正面照片，实名填写姓名、手机号码和医保卡号。\n" +
+                                            "资料正确提交后如认证失败，请24小时后再次认证！如需帮助或有任何疑问，请联系我们！");
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();

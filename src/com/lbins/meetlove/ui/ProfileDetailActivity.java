@@ -96,8 +96,7 @@ public class ProfileDetailActivity extends BaseActivity implements View.OnClickL
         progressDialog.setIndeterminate(true);
         progressDialog.show();
         getEmpById();
-        //判断我和他之间的关系
-        getFriends();
+
     }
 
     private void getEmpById() {
@@ -382,7 +381,8 @@ public class ProfileDetailActivity extends BaseActivity implements View.OnClickL
                 break;
             }
         }
-
+        //判断我和他之间的关系
+        getFriends();
 
     }
 
