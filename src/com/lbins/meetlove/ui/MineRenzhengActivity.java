@@ -80,6 +80,8 @@ public class MineRenzhengActivity extends BaseActivity implements View.OnClickLi
 
     private Resources res;
 
+    private TextView labelmsg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,6 +102,8 @@ public class MineRenzhengActivity extends BaseActivity implements View.OnClickLi
         idcard = (ImageView) this.findViewById(R.id.idcard);
         nickname = (TextView) this.findViewById(R.id.nickname);
         mobile = (TextView) this.findViewById(R.id.mobile);
+
+        labelmsg = (TextView) this.findViewById(R.id.labelmsg);
 
         btn_1 = (Button) this.findViewById(R.id.btn_1);
         btn_2 = (Button) this.findViewById(R.id.btn_2);
@@ -125,11 +129,13 @@ public class MineRenzhengActivity extends BaseActivity implements View.OnClickLi
             if(!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("cardpic", ""), String.class))){
                 imageLoader.displayImage(getGson().fromJson(getSp().getString("cardpic", ""), String.class), idcard, MeetLoveApplication.options, animateFirstListener);
             }
+            labelmsg.setVisibility(View.GONE);
         }else {
             //未认证
             btn_1.setBackgroundResource(R.drawable.btn_big_active);
             btn_1.setTextColor(res.getColor(R.color.white));
             btn_1.setText("身份认证");
+            labelmsg.setVisibility(View.VISIBLE);
         }
         if("1".equals(getGson().fromJson(getSp().getString("rzstate2", ""), String.class))){
             //会员认证了
@@ -463,6 +469,7 @@ public class MineRenzhengActivity extends BaseActivity implements View.OnClickLi
                                 JSONObject jo = new JSONObject(s);
                                 String code = jo.getString("code");
                                 if(Integer.parseInt(code) == 200) {
+                                    labelmsg.setVisibility(View.GONE);
                                     save("cardpic", InternetURL.QINIU_URL + uploadpic);
                                     save("rzstate1", "1");
                                     save("rzstate2", "2");

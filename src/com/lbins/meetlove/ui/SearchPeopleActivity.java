@@ -42,6 +42,8 @@ public class SearchPeopleActivity extends BaseActivity implements View.OnClickLi
     private String educationID2;
     private String marragieID;
     private String likeids;
+    private String provinceid;
+    private String cityid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,8 @@ public class SearchPeopleActivity extends BaseActivity implements View.OnClickLi
         educationID2 = getIntent().getExtras().getString("educationID2");
         marragieID = getIntent().getExtras().getString("marragieID");
         likeids = getIntent().getExtras().getString("likeids");
+        provinceid = getIntent().getExtras().getString("provinceid");
+        cityid = getIntent().getExtras().getString("cityid");
 
         initView();
         progressDialog = new CustomProgressDialog(SearchPeopleActivity.this, "请稍后...",R.anim.custom_dialog_frame);
@@ -175,6 +179,12 @@ public class SearchPeopleActivity extends BaseActivity implements View.OnClickLi
                 }
                 if(!StringUtil.isNullOrEmpty(likeids)){
                     params.put("likeids", likeids);
+                }
+                if(!StringUtil.isNullOrEmpty(provinceid)){
+                    params.put("provinceid", provinceid);
+                }
+                if(!StringUtil.isNullOrEmpty(cityid)){
+                    params.put("cityid", cityid);
                 }
                 return params;
             }

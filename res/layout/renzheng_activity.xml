@@ -33,10 +33,10 @@
                           android:textColor="@color/main_color"
                           android:textSize="14sp"
                           android:gravity="center"
+                          android:id="@+id/labelmsg"
                           android:layout_marginTop="3dp"
                           android:text="请上传身份证照片，仅供审核使用"
                           android:layout_height="wrap_content"/>
-
             </LinearLayout>
 
             <EditText android:layout_width="match_parent"

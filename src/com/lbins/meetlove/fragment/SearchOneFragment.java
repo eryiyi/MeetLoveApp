@@ -1,46 +1,33 @@
 package com.lbins.meetlove.fragment;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.*;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.lbins.meetlove.R;
 import com.lbins.meetlove.adapter.OnClickContentItemListener;
 import com.lbins.meetlove.base.BaseFragment;
-import com.lbins.meetlove.base.InternetURL;
-import com.lbins.meetlove.data.EmpData;
 import com.lbins.meetlove.module.City;
 import com.lbins.meetlove.module.HappyHandLike;
 import com.lbins.meetlove.module.Province;
-import com.lbins.meetlove.ui.LikesActivity;
 import com.lbins.meetlove.ui.SearchPeopleActivity;
 import com.lbins.meetlove.ui.SearchPeopleLikesActivity;
+import com.lbins.meetlove.ui.SelectAreaActivity;
 import com.lbins.meetlove.util.StringUtil;
-import com.lbins.meetlove.widget.*;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.lbins.meetlove.widget.PopAgeWindow;
+import com.lbins.meetlove.widget.PopEducationWindow2;
+import com.lbins.meetlove.widget.PopHeightlWindow;
+import com.lbins.meetlove.widget.PopMarryWindow2;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class SearchOneFragment extends BaseFragment implements View.OnClickListener,OnClickContentItemListener {
 
@@ -52,6 +39,7 @@ public class SearchOneFragment extends BaseFragment implements View.OnClickListe
     private TextView education;
     private TextView marragie;
     private TextView likes;
+    private TextView address;
     //择偶要求
     private String agestart="";
     private String ageend="";
@@ -60,6 +48,9 @@ public class SearchOneFragment extends BaseFragment implements View.OnClickListe
     private String educationID2="";
     private String marragieID = "";
     private String likeids= "";
+
+    private String provinceid = "";
+    private String cityid = "";
 
     private List<HappyHandLike> likeLists = new ArrayList<>();//兴趣爱好集合
 
@@ -85,12 +76,14 @@ public class SearchOneFragment extends BaseFragment implements View.OnClickListe
         education = (TextView) view.findViewById(R.id.education);
         marragie = (TextView) view.findViewById(R.id.marragie);
         likes = (TextView) view.findViewById(R.id.likes);
+        address = (TextView) view.findViewById(R.id.address);
 
         age.setOnClickListener(this);
         heightl.setOnClickListener(this);
         education.setOnClickListener(this);
         marragie.setOnClickListener(this);
         likes.setOnClickListener(this);
+        address.setOnClickListener(this);
 
         btn_login = (Button) view.findViewById(R.id.btn_login);
         btn_login.setOnClickListener(this);
@@ -124,6 +117,8 @@ public class SearchOneFragment extends BaseFragment implements View.OnClickListe
                             intent.putExtra("educationID2", educationID2);
                             intent.putExtra("marragieID", marragieID);
                             intent.putExtra("likeids", likeids);
+                            intent.putExtra("provinceid", provinceid);
+                            intent.putExtra("cityid", cityid);
                             startActivity(intent);
                         }
                     }else{
@@ -135,6 +130,8 @@ public class SearchOneFragment extends BaseFragment implements View.OnClickListe
                                 || !StringUtil.isNullOrEmpty(educationID2)
                                 || !StringUtil.isNullOrEmpty(marragieID)
                                 || !StringUtil.isNullOrEmpty(likeids)
+                                || !StringUtil.isNullOrEmpty(provinceid)
+                                || !StringUtil.isNullOrEmpty(cityid)
                                 )
                         {
 //                        btn_login.setBackground(getActivity().getDrawable(R.drawable.btn_big_active));
@@ -149,6 +146,8 @@ public class SearchOneFragment extends BaseFragment implements View.OnClickListe
                             intent.putExtra("educationID2", educationID2);
                             intent.putExtra("marragieID", marragieID);
                             intent.putExtra("likeids", likeids);
+                            intent.putExtra("provinceid", provinceid);
+                            intent.putExtra("cityid", cityid);
                             startActivity(intent);
                         } else {
                             btn_login.setBackgroundResource(R.drawable.btn_big_unactive);
@@ -269,6 +268,8 @@ public class SearchOneFragment extends BaseFragment implements View.OnClickListe
                         intent.putExtra("educationID2", educationID2);
                         intent.putExtra("marragieID", marragieID);
                         intent.putExtra("likeids", likeids);
+                        intent.putExtra("provinceid", provinceid);
+                        intent.putExtra("cityid", cityid);
                         startActivity(intent);
                     }
                 }else{
@@ -280,21 +281,32 @@ public class SearchOneFragment extends BaseFragment implements View.OnClickListe
                             || !StringUtil.isNullOrEmpty(education.getText().toString())
                             || !StringUtil.isNullOrEmpty(marragie.getText().toString())
                             || !StringUtil.isNullOrEmpty(likeids)
+                            || !StringUtil.isNullOrEmpty(provinceid)
+                            || !StringUtil.isNullOrEmpty(cityid)
                             ){
-                        Intent intent = new Intent(getActivity(), SearchPeopleActivity.class);
-                        intent.putExtra("keywords", keywords.getText().toString());
-                        intent.putExtra("agestart", agestart);
-                        intent.putExtra("ageend", ageend);
-                        intent.putExtra("heightlstart", heightlstart);
-                        intent.putExtra("heightlend", heightlend);
-                        intent.putExtra("educationID2", educationID2);
-                        intent.putExtra("marragieID", marragieID);
-                        intent.putExtra("likeids", likeids);
-                        startActivity(intent);
+                                Intent intent = new Intent(getActivity(), SearchPeopleActivity.class);
+                                intent.putExtra("keywords", keywords.getText().toString());
+                                intent.putExtra("agestart", agestart);
+                                intent.putExtra("ageend", ageend);
+                                intent.putExtra("heightlstart", heightlstart);
+                                intent.putExtra("heightlend", heightlend);
+                                intent.putExtra("educationID2", educationID2);
+                                intent.putExtra("marragieID", marragieID);
+                                intent.putExtra("likeids", likeids);
+                                intent.putExtra("provinceid", provinceid);
+                                intent.putExtra("cityid", cityid);
+                                startActivity(intent);
                     }else {
                         Toast.makeText(getActivity(), "请选择查询条件!", Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+                break;
+            case R.id.address:
+            {
+                //所在地
+                Intent intent = new Intent(getActivity(), SelectAreaActivity.class);
+                startActivityForResult(intent, 1000);
             }
                 break;
         }
@@ -314,6 +326,22 @@ public class SearchOneFragment extends BaseFragment implements View.OnClickListe
                     }
                     btn_login.setBackgroundResource(R.drawable.btn_big_active);
                     btn_login.setTextColor(getResources().getColor(R.color.white));
+                }
+            }
+            break;
+            case 1000:
+            {
+                if(resultCode == 10001){
+                    City cityObj = (City) data.getExtras().get("cityObj");
+                    Province provinceObj = (Province) data.getExtras().get("provinceObj");
+                    if(provinceObj != null && cityObj != null){
+                        address.setText(provinceObj.getPname() + cityObj.getCityName());
+                        provinceid = provinceObj.getProvinceid();
+                        cityid = cityObj.getCityid();
+
+                        btn_login.setBackgroundResource(R.drawable.btn_big_active);
+                        btn_login.setTextColor(getResources().getColor(R.color.white));
+                    }
                 }
             }
             break;

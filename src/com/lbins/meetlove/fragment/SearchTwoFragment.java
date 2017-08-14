@@ -27,7 +27,6 @@ import com.lbins.meetlove.base.InternetURL;
 import com.lbins.meetlove.data.HappyHandLikeData;
 import com.lbins.meetlove.module.HappyHandLike;
 import com.lbins.meetlove.ui.SearchGroupsActivity;
-import com.lbins.meetlove.ui.SearchPeopleActivity;
 import com.lbins.meetlove.util.StringUtil;
 import com.lbins.meetlove.widget.CustomProgressDialog;
 import org.json.JSONObject;

@@ -132,7 +132,6 @@ public class RegUpdateActivity extends BaseActivity implements View.OnClickListe
 
     private EditText tjperson;
     private EditText tjmobile;
-    private EditText cardnum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,9 +173,6 @@ public class RegUpdateActivity extends BaseActivity implements View.OnClickListe
         }
         if(!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("tjmobile", ""), String.class))){
             tjmobile.setText(getGson().fromJson(getSp().getString("tjmobile", ""), String.class));
-        }
-        if(!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("cardnum", ""), String.class))){
-            cardnum.setText(getGson().fromJson(getSp().getString("cardnum", ""), String.class));
         }
 
         if(!StringUtil.isNullOrEmpty(getGson().fromJson(getSp().getString("age", ""), String.class))){
@@ -349,7 +345,6 @@ public class RegUpdateActivity extends BaseActivity implements View.OnClickListe
         likes = (TextView) this.findViewById(R.id.likes);
         company = (EditText) this.findViewById(R.id.company);
         tjperson = (EditText) this.findViewById(R.id.tjperson);
-        cardnum = (EditText) this.findViewById(R.id.cardnum);
         tjmobile = (EditText) this.findViewById(R.id.tjmobile);
 
         txt_pic = (TextView) this.findViewById(R.id.txt_pic);
@@ -533,14 +528,6 @@ public class RegUpdateActivity extends BaseActivity implements View.OnClickListe
                     showMsg(RegUpdateActivity.this, "姓名太长，请检查！");
                     return;
                 }
-                if(StringUtil.isNullOrEmpty(cardnum.getText().toString())){
-                    showMsg(RegUpdateActivity.this, "请输入医保卡号");
-                    return;
-                }
-                if(cardnum.getText().toString().length() > 12){
-                    showMsg(RegUpdateActivity.this, "请输入正确的医保卡号");
-                    return;
-                }
 
                 if(StringUtil.isNullOrEmpty(company.getText().toString())){
                     showMsg(RegUpdateActivity.this, "请输入工作单位");
@@ -686,7 +673,7 @@ public class RegUpdateActivity extends BaseActivity implements View.OnClickListe
                 params.put("educationm", educationID2);
                 params.put("marriagem", marragieID2);
 
-                params.put("cardnum", cardnum.getText().toString());
+                params.put("cardnum", "");
                 params.put("tjmobile", tjmobile.getText().toString());
                 params.put("tjperson", tjperson.getText().toString());
 

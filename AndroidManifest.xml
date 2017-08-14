@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.lbins.meetlove"
           xmlns:tools="http://schemas.android.com/tools"
-          android:versionCode="11"
-          android:versionName="2.0.2">
+          android:versionCode="13"
+          android:versionName="2.0.4">
     <uses-sdk android:minSdkVersion="10"   tools:overrideLibrary="com.easemob.redpacket"/>
 
     <!-- 允许程序打开网络sockets(必选配置) -->
