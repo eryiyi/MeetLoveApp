@@ -363,6 +363,10 @@ public class MineSettingActivity extends BaseActivity implements View.OnClickLis
                             save("marriagem", "");
                             save("is_push", "");
 
+                            save("cardnum", "");
+                            save("tjperson", "");
+                            save("tjmobile", "");
+
                             ActivityTack.getInstanse().popUntilActivity(LoginActivity.class);
                             finish();
                         }

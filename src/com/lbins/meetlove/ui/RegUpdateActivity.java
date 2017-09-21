@@ -323,9 +323,14 @@ public class RegUpdateActivity extends BaseActivity implements View.OnClickListe
                 break;
             }
         }
+
         if("1".equals(getGson().fromJson(getSp().getString("rzstate1", ""), String.class))){
             nickname.setFocusable(false);
+            company.setFocusable(false);
+            tjperson.setFocusable(false);
+            tjmobile.setFocusable(false);
         }
+
     }
 
     private void initView() {
@@ -426,50 +431,84 @@ public class RegUpdateActivity extends BaseActivity implements View.OnClickListe
             case R.id.cover:
             {
                 //头像点击
-                hiddenKeyBoard(view);
-                showDialogPhoto();
+                if("1".equals(getGson().fromJson(getSp().getString("rzstate1", ""), String.class))){
+                    //已认证了
+                }else{
+                    hiddenKeyBoard(view);
+                    showDialogPhoto();
+                }
             }
                 break;
             case R.id.age:
             {
                 //年龄
-                hiddenKeyBoard(view);
-                showAgeProfile();
+                if("1".equals(getGson().fromJson(getSp().getString("rzstate1", ""), String.class))){
+
+                }else{
+                    hiddenKeyBoard(view);
+                    showAgeProfile();
+                }
+
             }
                 break;
             case R.id.heightl:
             {
                 //身高
-                hiddenKeyBoard(view);
-                showPopHeightlProfile();
+                if("1".equals(getGson().fromJson(getSp().getString("rzstate1", ""), String.class))){
+
+                }else{
+                    hiddenKeyBoard(view);
+                    showPopHeightlProfile();
+                }
+
             }
             break;
             case R.id.education:
             {
                 //学历
-                hiddenKeyBoard(view);
-                showPopEducation();
+                if("1".equals(getGson().fromJson(getSp().getString("rzstate1", ""), String.class))){
+
+                }else{
+                    hiddenKeyBoard(view);
+                    showPopEducation();
+                }
+
             }
             break;
             case R.id.address:
             {
                 //所在地
-                Intent intent = new Intent(RegUpdateActivity.this, SelectAreaActivity.class);
-                startActivityForResult(intent, 1000);
+                if("1".equals(getGson().fromJson(getSp().getString("rzstate1", ""), String.class))){
+
+                }else{
+                    Intent intent = new Intent(RegUpdateActivity.this, SelectAreaActivity.class);
+                    startActivityForResult(intent, 1000);
+                }
+
             }
             break;
             case R.id.marragie:
             {
                 //婚姻状况
-                hiddenKeyBoard(view);
-                showPopMarry();
+                if("1".equals(getGson().fromJson(getSp().getString("rzstate1", ""), String.class))){
+
+                }else{
+                    hiddenKeyBoard(view);
+                    showPopMarry();
+                }
+
             }
             break;
             case R.id.likes:
             {
                 //爱好
-                Intent intent = new Intent(RegUpdateActivity.this, LikesActivity.class);
-                startActivityForResult(intent, 1001);
+                if("1".equals(getGson().fromJson(getSp().getString("rzstate1", ""), String.class))){
+
+                }else{
+                    Intent intent = new Intent(RegUpdateActivity.this, LikesActivity.class);
+                    startActivityForResult(intent, 1001);
+                }
+
             }
             break;
 
